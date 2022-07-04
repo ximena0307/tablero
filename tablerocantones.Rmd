@@ -1,0 +1,53 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(sf)
+library(dplyr)
+library(leaflet)
+library(readxl)
+library(DT)
+
+-----------------------------------------------------------------------
+
+### Chart A
+  
+```
+
+
+r_lectura_de_datos 
+  message=FALSE
+  warning=FALS
+
+```{r lectura_datos, message=FALSE, warning=FALSE}
+cantones<- 
+st_read (dsn = "cantones_simplificados.geojson.txt") 
+transform(4326)
+```
+
+
+```{r DT, message=FALSE, warning=FALSE}
+DT(provincias,cantones,area)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
